@@ -8,11 +8,11 @@
 		<version>3.5.14</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.kimstudio</groupId>
-	<artifactId>backend-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>backend-api</name>
-	<description>API de Estética KIM</description>
+	<groupId>pe.nova</groupId>
+<artifactId>nova-backend</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<name>nova-backend</name>
+<description>API REST de NOVA Beauty Salon para la gestión de citas</description>
 
 	<properties>
 		<java.version>17</java.version>

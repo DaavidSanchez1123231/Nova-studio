@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict nYO9bbTFWaxoAcmq8XNLXGEeuWE4O9BIdIJ0nI5H6FVkSldJqU8K9nF8lP4Wmri
+\restrict PTO7GVNe2agtknYGcaakYKMk5wwD1I0fbJnQq9cIoScEBLnGKGQJhNsAdpk3o0t
 
 -- Dumped from database version 18.6
 -- Dumped by pg_dump version 18.6
 
--- Started on 2026-10-22 15:22:28
+-- Started on 2026-11-03 22:37:47
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -331,7 +331,9 @@ CREATE TABLE public.configuracion (
     instagram character varying(200),
     facebook character varying(200),
     fecha_actualizacion timestamp without time zone DEFAULT now(),
-    correo_contacto character varying(150)
+    correo_contacto character varying(150),
+    tiktok_url character varying(250),
+    whatsapp_url character varying(250)
 );
 
 
@@ -684,8 +686,8 @@ COPY public.citas (id_cita, id_usuario, id_especialista, id_servicio, id_horario
 -- Data for Name: configuracion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.configuracion (id_config, nombre_salon, telefono_whatsapp, direccion, instagram, facebook, fecha_actualizacion, correo_contacto) FROM stdin;
-1	NOVA Beauty Salon	\N	\N	\N	\N	2026-10-20 22:46:51.574959	\N
+COPY public.configuracion (id_config, nombre_salon, telefono_whatsapp, direccion, instagram, facebook, fecha_actualizacion, correo_contacto, tiktok_url, whatsapp_url) FROM stdin;
+1	NOVA BEAUTY SALON	985740023	Lima, Collique, Peru	https://www.instagram.com/darky_z7z/	https://www.instagram.com/darky_z7z/	2026-11-03 22:27:04.117603	novabeautysalon@gmail.com	https://www.tiktok.com/@darky_z7?is_from_webapp=1&sender_device=pc	https://wa.me/51921414198
 \.
 
 
@@ -1191,11 +1193,11 @@ ALTER TABLE ONLY public.ventas
     ADD CONSTRAINT fk_ventas_promocion FOREIGN KEY (id_promocion) REFERENCES public.promociones(id_promocion);
 
 
--- Completed on 2026-10-22 15:22:29
+-- Completed on 2026-11-03 22:37:47
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict nYO9bbTFWaxoAcmq8XNLXGEeuWE4O9BIdIJ0nI5H6FVkSldJqU8K9nF8lP4Wmri
+\unrestrict PTO7GVNe2agtknYGcaakYKMk5wwD1I0fbJnQq9cIoScEBLnGKGQJhNsAdpk3o0t
 

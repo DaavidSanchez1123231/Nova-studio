@@ -183,6 +183,49 @@
             </span>
           </div>
 
+          <!-- TIKTOK Y WHATSAPP -->
+<div class="form-row">
+
+  <div class="form-group">
+    <label for="empresaTikTok">
+      <i class="fab fa-tiktok"></i>
+      Enlace de TikTok
+    </label>
+
+    <input
+      id="empresaTikTok"
+      type="url"
+      [(ngModel)]="empresa.tiktokUrl"
+      name="tiktokUrl"
+      placeholder="https://www.tiktok.com/@nova"
+    >
+
+    <small class="input-help">
+      Introduce el enlace de la cuenta oficial de NOVA.
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="empresaWhatsapp">
+      <i class="fab fa-whatsapp"></i>
+      Enlace de WhatsApp
+    </label>
+
+    <input
+      id="empresaWhatsapp"
+      type="url"
+      [(ngModel)]="empresa.whatsappUrl"
+      name="whatsappUrl"
+      placeholder="https://wa.me/51921....."
+    >
+
+    <small class="input-help">
+      Introduce el enlace directo para iniciar una conversación.
+    </small>
+  </div>
+
+</div>
+
           <button type="submit" class="btn-primary-sm">
             <i class="fas fa-save"></i>
             Actualizar información

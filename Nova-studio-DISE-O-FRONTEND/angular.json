@@ -8,7 +8,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "kim-studio-admin": {
+    "nova-beauty-salon-admin": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -60,17 +60,17 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "kim-studio-admin:build:production"
-            },
-            "development": {
-              "buildTarget": "kim-studio-admin:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
+  "builder": "@angular/build:dev-server",
+  "configurations": {
+    "production": {
+      "buildTarget": "nova-beauty-salon-admin:build:production"
+    },
+    "development": {
+      "buildTarget": "nova-beauty-salon-admin:build:development"
+    }
+  },
+  "defaultConfiguration": "development"
+},
         "test": {
           "builder": "@angular/build:unit-test"
         }

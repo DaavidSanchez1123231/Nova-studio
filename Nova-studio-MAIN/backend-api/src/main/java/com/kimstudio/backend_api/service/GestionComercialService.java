@@ -523,6 +523,10 @@ public class GestionComercialService {
             String fechaExpiracion,
             String descripcion) {
 
+
+         if (descripcion == null || descripcion.isBlank()) {
+    throw new IllegalArgumentException("La descripción de la promoción es obligatoria.");
+}
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre de la promoción es obligatorio.");
         }

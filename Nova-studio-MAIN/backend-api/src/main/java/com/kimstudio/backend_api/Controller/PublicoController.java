@@ -1,6 +1,5 @@
 package com.kimstudio.backend_api.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -13,69 +12,125 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:4200")
 public class PublicoController {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
-   
-@GetMapping("/galeria")
-public ResponseEntity<List<Map<String, Object>>> obtenerGaleriaPublica() {
+    public PublicoController(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    // Galería pública
+    @GetMapping("/galeria")
+    public ResponseEntity<List<Map<String, Object>>> obtenerGaleriaPublica() {
+
+        String sql = """
+                SELECT
+                    id_imagen,
+                    titulo,
+                    categoria,
+                    url_imagen,
+                    url_imagen_despues,
+                    fecha_subida
+                FROM public.galeria
+                WHERE estado = '1'
+                ORDER BY fecha_subida DESC
+                """;
+
+        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
+    }
+
+    // Servicios públicos
+    @GetMapping("/servicios")
+    public ResponseEntity<List<Map<String, Object>>> obtenerServiciosPublicos() {
+
+        String sql = """
+                SELECT
+                    id_servicio,
+                    nombre,
+                    descripcion,
+                    precio,
+                    duracion_minutos,
+                    categoria,
+                    imagen_url
+                FROM public.servicios
+                WHERE estado = '1'
+                """;
+
+        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
+    }
+
+    // Especialistas públicos
+    @GetMapping("/especialistas")
+    public ResponseEntity<List<Map<String, Object>>> obtenerEspecialistasPublicos() {
+
+        String sql = """
+                SELECT
+                    id_especialista,
+                    nombre,
+                    especialidad
+                FROM public.especialistas
+                WHERE estado = TRUE
+                ORDER BY nombre
+                """;
+
+        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
+    }
+
+    // Promociones públicas
+    @GetMapping("/promociones")
+    public ResponseEntity<List<Map<String, Object>>> obtenerPromocionesPublicas() {
+
+        String sql = """
+                SELECT
+                    id_promocion,
+                    nombre,
+                    descuento,
+                    codigo,
+                    fecha_expiracion,
+                    descripcion
+                FROM public.promociones
+                WHERE estado = TRUE
+                  AND fecha_expiracion >= CURRENT_DATE
+                ORDER BY id_promocion DESC
+                """;
+
+        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
+    }
+
+// Información pública del salón para la sección Contáctanos
+@GetMapping("/configuracion")
+public ResponseEntity<Map<String, Object>> obtenerConfiguracionPublica() {
 
     String sql = """
         SELECT
-            id_imagen,
-            titulo,
-            categoria,
-            url_imagen,
-            url_imagen_despues,
-            fecha_subida
-        FROM public.galeria
-        WHERE estado = '1'
-        ORDER BY fecha_subida DESC
+            nombre_salon,
+            telefono_whatsapp,
+            correo_contacto,
+            direccion,
+            instagram,
+            facebook,
+            tiktok_url,
+            whatsapp_url
+        FROM public.configuracion
+        ORDER BY id_config DESC
+        LIMIT 1
         """;
 
-    return ResponseEntity.ok(
-        jdbcTemplate.queryForList(sql)
-    );
-}
+    try {
+        List<Map<String, Object>> resultado =
+                jdbcTemplate.queryForList(sql);
 
-
-    @GetMapping("/servicios")
-    public ResponseEntity<List<Map<String, Object>>> obtenerServiciosPublicos() {
-        String sql = "SELECT id_servicio, nombre, descripcion, precio, " +
-                     "duracion_minutos, categoria, imagen_url " +
-                     "FROM Servicios WHERE estado = '1'";
-        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
-    }
-        @GetMapping("/especialistas")
-    public ResponseEntity<List<Map<String, Object>>> obtenerEspecialistasPublicos() {
-        // Solo datos para elegir: NO se expone el teléfono ni el estado
-        String sql = "SELECT id_especialista, nombre, especialidad " +
-                     "FROM Especialistas WHERE estado = TRUE ORDER BY nombre";
-        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
-    }
-
-    @GetMapping("/promociones")
-    public ResponseEntity<List<Map<String, Object>>> obtenerPromocionesPublicas() {
-         String sql = "SELECT id_promocion, nombre, descuento, codigo, " +
-                     "fecha_expiracion, descripcion " +
-                     "FROM public.promociones WHERE estado = TRUE " +
-                     "AND fecha_expiracion >= CURRENT_DATE " +
-                     "ORDER BY id_promocion DESC";
-
-        return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
-    }
-    @GetMapping("/configuracion")
-    public ResponseEntity<Map<String, Object>> obtenerConfiguracionPublica() {
-        try {
-            String sql = "SELECT nombre_salon, telefono_whatsapp, direccion, instagram, facebook " +
-                        "FROM Configuracion ORDER BY id_config DESC LIMIT 1";
-            List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
-            if (result.isEmpty()) {
-                return ResponseEntity.status(404).body(Map.of("mensaje", "Sin configuración."));
-            }
-            return ResponseEntity.ok(result.get(0));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(Map.of("mensaje", "Error: " + e.getMessage()));
+        if (resultado.isEmpty()) {
+            return ResponseEntity.notFound().build();
         }
+
+        return ResponseEntity.ok(resultado.get(0));
+
+    } catch (Exception e) {
+        System.err.println(
+            "Error al consultar configuración pública: " + e.getMessage()
+        );
+
+        return ResponseEntity.internalServerError().build();
     }
+}
 }
