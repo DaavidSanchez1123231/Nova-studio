@@ -19,7 +19,55 @@ public class HorarioService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    // Jornada de atención: turnos de 1 hora. Cambia estas constantes si el salón abre distinto.
+    private static final int HORA_APERTURA = 9;   // primer turno 09:00
+    private static final int HORA_CIERRE = 18;    // último turno termina 18:00
+    private static final int DIA_DESCANSO = 7;    // 7 = domingo (1 = lunes ... 7 = domingo)
+
+    /**
+     * Crea (solo si faltan) los turnos libres de un día para los especialistas ACTIVOS.
+     * Así nadie tiene que cargar horarios por SQL: al consultar una fecha aparecen las horas libres.
+     * No toca turnos existentes: respeta reservados, en proceso y los cancelados a mano.
+     * @param idEspecialista null = todos los activos
+     */
+    @Transactional
+    public void generarTurnosDelDia(String fecha, Integer idEspecialista) {
+        LocalDate dia;
+        try {
+            dia = LocalDate.parse(fecha);
+        } catch (DateTimeParseException | NullPointerException ex) {
+            throw new IllegalArgumentException("La fecha no tiene un formato válido.");
+        }
+
+        ZoneId zonaPeru = ZoneId.of("America/Lima");
+        LocalDate hoyPeru = LocalDate.now(zonaPeru);
+        if (dia.isBefore(hoyPeru) || dia.getDayOfWeek().getValue() == DIA_DESCANSO) {
+            return;
+        }
+        // Hoy solo se ofrecen horas que aún no pasaron
+        LocalTime desde = dia.isEqual(hoyPeru) ? LocalTime.now(zonaPeru) : LocalTime.MIN;
+
+        // Evita que dos consultas simultáneas generen turnos duplicados
+        jdbcTemplate.queryForList("SELECT pg_advisory_xact_lock(hashtext(?))", "turnos-" + fecha);
+
+        String sql =
+                "INSERT INTO public.horarios (id_especialista, fecha, hora_inicio, hora_fin, estado) " +
+                "SELECT e.id_especialista, CAST(? AS DATE), t.hora, t.hora + INTERVAL '1 hour', 'DISPONIBLE' " +
+                "FROM public.especialistas e " +
+                "CROSS JOIN (SELECT make_time(g, 0, 0) AS hora FROM generate_series(" + HORA_APERTURA + ", " + (HORA_CIERRE - 1) + ") g) t " +
+                "WHERE e.estado = TRUE " +
+                "AND (CAST(? AS INTEGER) IS NULL OR e.id_especialista = CAST(? AS INTEGER)) " +
+                "AND t.hora > CAST(? AS TIME) " +
+                "AND NOT EXISTS (SELECT 1 FROM public.horarios x " +
+                "    WHERE x.id_especialista = e.id_especialista AND x.fecha = CAST(? AS DATE) " +
+                "    AND (x.hora_inicio = t.hora " +
+                "         OR (UPPER(x.estado) <> 'CANCELADO' AND t.hora < x.hora_fin AND t.hora + INTERVAL '1 hour' > x.hora_inicio)))";
+        jdbcTemplate.update(sql, fecha, idEspecialista, idEspecialista, desde.toString(), fecha);
+    }
+
+    @Transactional
     public List<Map<String, Object>> obtenerHorariosDisponibles(String fecha) {
+        generarTurnosDelDia(fecha, null);
         String sql =
                 "SELECT h.id_horario, CAST(h.fecha AS VARCHAR) AS fecha, " +
                 "TO_CHAR(h.hora_inicio, 'HH24:MI') AS hora_inicio, " +

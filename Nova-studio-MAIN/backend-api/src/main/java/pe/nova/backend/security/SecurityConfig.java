@@ -53,6 +53,8 @@ public class SecurityConfig {
                                      "/api/productos", "/api/productos/**", 
                                      "/api/promociones", "/api/promociones/**").hasAuthority("admin")
                     
+                    // El cliente reserva su propia cita: debe ir ANTES de la regla general de /api/citas/**
+                    .requestMatchers(HttpMethod.POST, "/api/citas/cliente/reservar").hasAnyAuthority("cliente", "admin", "recepcion")
                     .requestMatchers("/api/reservas/**").authenticated()
                     .requestMatchers("/api/ventas", "/api/ventas/**").hasAnyAuthority("admin", "recepcion")
                     .requestMatchers(HttpMethod.GET, "/api/productos", "/api/promociones").hasAnyAuthority("admin", "recepcion")

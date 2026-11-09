@@ -22,9 +22,14 @@ public class ReservaService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private HorarioService horarioService;
+
     // ---- tus 3 métodos originales (sin cambios) ----
     public List<Map<String, Object>> obtenerHorariosDisponibles(int idEspecialista, String fecha) {
-        String sql = "SELECT * FROM sp_horarios_disponibles(?, ?)";
+        // Primero se completan los turnos libres del día para ese especialista (si aún no existen)
+        horarioService.generarTurnosDelDia(fecha, idEspecialista);
+        String sql = "SELECT * FROM sp_horarios_disponibles(?, CAST(? AS DATE))";
         return jdbcTemplate.queryForList(sql, idEspecialista, fecha);
     }
 
