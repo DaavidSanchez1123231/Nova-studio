@@ -4,8 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.mail.SimpleMailMessage;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -61,12 +62,14 @@ public class EmailService {
         }
     }
 
-    private void enviar(String destino, String asunto, String texto) {
-        SimpleMailMessage mensaje = new SimpleMailMessage();
-        mensaje.setFrom(remitente);
-        mensaje.setTo(destino);
-        mensaje.setSubject(asunto);
-        mensaje.setText(texto);
+    private void enviar(String destino, String asunto, String texto) throws Exception {
+        MimeMessage mensaje = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mensaje, false, "UTF-8");
+        // El nombre visible del remitente es el del salón ("NOVA Beauty Salon"), no el de la cuenta de Gmail
+        helper.setFrom(remitente, salon);
+        helper.setTo(destino);
+        helper.setSubject(asunto);
+        helper.setText(texto, false);
         mailSender.send(mensaje);
         log.info("Correo enviado");
     }

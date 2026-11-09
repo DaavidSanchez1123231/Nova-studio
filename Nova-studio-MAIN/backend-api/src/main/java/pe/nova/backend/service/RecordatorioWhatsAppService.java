@@ -56,7 +56,7 @@ public class RecordatorioWhatsAppService {
             String telefonoDestino = "whatsapp:" + telefono;
             String telefonoOrigen = "whatsapp:" + twilioPhoneNumber;
             
-            String mensajeTexto = String.format("¡Hola %s! Recuerda que mañana tienes una cita en KIM Studio a las %s para tu servicio de %s. ¡Te esperamos!", nombre, hora, servicio);
+            String mensajeTexto = String.format("¡Hola %s! Recuerda que mañana tienes una cita en NOVA Beauty Salon a las %s para tu servicio de %s. ¡Te esperamos!", nombre, hora, servicio);
 
             try {
                 Message message = Message.creator(

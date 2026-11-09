@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict PTO7GVNe2agtknYGcaakYKMk5wwD1I0fbJnQq9cIoScEBLnGKGQJhNsAdpk3o0t
+\restrict 1WRMSFZLbyrW9b9Hs0GbgiRT9JlO0csZoZCMnsl9mLkfLiHihfDQKzbU8qKVUia
 
 -- Dumped from database version 18.6
 -- Dumped by pg_dump version 18.6
 
--- Started on 2026-11-03 22:37:47
+-- Started on 2026-11-09 18:36:09
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,7 +22,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 244 (class 1255 OID 16564)
+-- TOC entry 249 (class 1255 OID 16564)
 -- Name: sp_actualizar_estado_cita(integer, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -42,7 +42,7 @@ END $$;
 ALTER FUNCTION public.sp_actualizar_estado_cita(p_id_cita integer, p_estado character varying) OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1255 OID 16565)
+-- TOC entry 250 (class 1255 OID 16565)
 -- Name: sp_admin_agregar_horario(integer, date, time without time zone, time without time zone); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -62,7 +62,7 @@ END $$;
 ALTER FUNCTION public.sp_admin_agregar_horario(p_id_especialista integer, p_fecha date, p_hora_inicio time without time zone, p_hora_fin time without time zone) OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1255 OID 16563)
+-- TOC entry 248 (class 1255 OID 16563)
 -- Name: sp_confirmar_cita(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -86,7 +86,7 @@ END $$;
 ALTER FUNCTION public.sp_confirmar_cita(p_id_horario integer, p_id_usuario integer) OWNER TO postgres;
 
 --
--- TOC entry 261 (class 1255 OID 16571)
+-- TOC entry 266 (class 1255 OID 16571)
 -- Name: sp_crear_producto(character varying, character varying, double precision, integer, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -103,7 +103,7 @@ END $$;
 ALTER FUNCTION public.sp_crear_producto(p_nombre character varying, p_categoria character varying, p_precio double precision, p_stock integer, p_descripcion character varying) OWNER TO postgres;
 
 --
--- TOC entry 263 (class 1255 OID 16572)
+-- TOC entry 268 (class 1255 OID 16572)
 -- Name: sp_crear_promocion(character varying, integer, character varying, date, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -120,7 +120,7 @@ END $$;
 ALTER FUNCTION public.sp_crear_promocion(p_nombre character varying, p_descuento integer, p_codigo character varying, p_fecha_expiracion date, p_descripcion character varying) OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1255 OID 16561)
+-- TOC entry 246 (class 1255 OID 16561)
 -- Name: sp_horarios_disponibles(integer, date); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -137,7 +137,7 @@ $$;
 ALTER FUNCTION public.sp_horarios_disponibles(p_id_especialista integer, p_fecha date) OWNER TO postgres;
 
 --
--- TOC entry 246 (class 1255 OID 16566)
+-- TOC entry 251 (class 1255 OID 16566)
 -- Name: sp_liberar_reservas_expiradas(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -159,7 +159,7 @@ END $$;
 ALTER FUNCTION public.sp_liberar_reservas_expiradas() OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1255 OID 16567)
+-- TOC entry 252 (class 1255 OID 16567)
 -- Name: sp_obtener_citas_manana(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -178,7 +178,7 @@ $$;
 ALTER FUNCTION public.sp_obtener_citas_manana() OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1255 OID 16569)
+-- TOC entry 254 (class 1255 OID 16569)
 -- Name: sp_registrar_usuario(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -190,7 +190,7 @@ CREATE FUNCTION public.sp_registrar_usuario(p_nombre character varying, p_email 
 ALTER FUNCTION public.sp_registrar_usuario(p_nombre character varying, p_email character varying, p_contrasena character varying) OWNER TO postgres;
 
 --
--- TOC entry 248 (class 1255 OID 16568)
+-- TOC entry 253 (class 1255 OID 16568)
 -- Name: sp_registrar_usuario(character varying, character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -211,7 +211,7 @@ END $$;
 ALTER FUNCTION public.sp_registrar_usuario(p_nombre character varying, p_email character varying, p_telefono character varying, p_contrasena character varying) OWNER TO postgres;
 
 --
--- TOC entry 264 (class 1255 OID 16573)
+-- TOC entry 269 (class 1255 OID 16573)
 -- Name: sp_registrar_venta(character varying, character varying, double precision); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -232,7 +232,7 @@ END $$;
 ALTER FUNCTION public.sp_registrar_venta(p_cliente character varying, p_metodo_pago character varying, p_monto_total double precision) OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1255 OID 16562)
+-- TOC entry 247 (class 1255 OID 16562)
 -- Name: sp_reservar_cita_temporal(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -262,7 +262,7 @@ END $$;
 ALTER FUNCTION public.sp_reservar_cita_temporal(p_id_usuario integer, p_id_horario integer, p_id_servicio integer) OWNER TO postgres;
 
 --
--- TOC entry 254 (class 1255 OID 16570)
+-- TOC entry 259 (class 1255 OID 16570)
 -- Name: sp_verificar_cuenta(uuid); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -387,6 +387,20 @@ ALTER TABLE public.detalle_venta_producto ALTER COLUMN id_detalle ADD GENERATED 
 
 
 --
+-- TOC entry 243 (class 1259 OID 16622)
+-- Name: especialista_servicio; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.especialista_servicio (
+    id_especialista integer NOT NULL,
+    id_servicio integer NOT NULL,
+    activo boolean DEFAULT true NOT NULL
+);
+
+
+ALTER TABLE public.especialista_servicio OWNER TO postgres;
+
+--
 -- TOC entry 222 (class 1259 OID 16404)
 -- Name: especialistas; Type: TABLE; Schema: public; Owner: postgres
 --
@@ -451,6 +465,50 @@ ALTER TABLE public.galeria ALTER COLUMN id_imagen ADD GENERATED BY DEFAULT AS ID
 
 
 --
+-- TOC entry 242 (class 1259 OID 16594)
+-- Name: horario_salon; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.horario_salon (
+    id_horario_salon bigint NOT NULL,
+    dia_semana smallint NOT NULL,
+    hora_inicio time without time zone NOT NULL,
+    hora_fin time without time zone NOT NULL,
+    intervalo_minutos smallint DEFAULT 30 NOT NULL,
+    activo boolean DEFAULT true NOT NULL,
+    CONSTRAINT horario_salon_check CHECK ((hora_fin > hora_inicio)),
+    CONSTRAINT horario_salon_dia_semana_check CHECK (((dia_semana >= 1) AND (dia_semana <= 7))),
+    CONSTRAINT horario_salon_intervalo_minutos_check CHECK (((intervalo_minutos >= 5) AND (intervalo_minutos <= 120)))
+);
+
+
+ALTER TABLE public.horario_salon OWNER TO postgres;
+
+--
+-- TOC entry 241 (class 1259 OID 16593)
+-- Name: horario_salon_id_horario_salon_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.horario_salon_id_horario_salon_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.horario_salon_id_horario_salon_seq OWNER TO postgres;
+
+--
+-- TOC entry 5206 (class 0 OID 0)
+-- Dependencies: 241
+-- Name: horario_salon_id_horario_salon_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.horario_salon_id_horario_salon_seq OWNED BY public.horario_salon.id_horario_salon;
+
+
+--
 -- TOC entry 226 (class 1259 OID 16423)
 -- Name: horarios; Type: TABLE; Schema: public; Owner: postgres
 --
@@ -462,7 +520,8 @@ CREATE TABLE public.horarios (
     hora_inicio time without time zone,
     hora_fin time without time zone,
     estado character varying(20) DEFAULT 'DISPONIBLE'::character varying,
-    fecha_bloqueo timestamp without time zone
+    fecha_bloqueo timestamp without time zone,
+    id_servicio integer
 );
 
 
@@ -475,6 +534,39 @@ ALTER TABLE public.horarios OWNER TO postgres;
 
 ALTER TABLE public.horarios ALTER COLUMN id_horario ADD GENERATED BY DEFAULT AS IDENTITY (
     SEQUENCE NAME public.horarios_id_horario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 245 (class 1259 OID 16644)
+-- Name: mensajes_contacto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.mensajes_contacto (
+    id_mensaje integer NOT NULL,
+    nombre character varying(100) NOT NULL,
+    correo character varying(100) NOT NULL,
+    telefono character varying(20),
+    mensaje text NOT NULL,
+    acepta_privacidad boolean DEFAULT false NOT NULL,
+    fecha_envio timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE public.mensajes_contacto OWNER TO postgres;
+
+--
+-- TOC entry 244 (class 1259 OID 16643)
+-- Name: mensajes_contacto_id_mensaje_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.mensajes_contacto ALTER COLUMN id_mensaje ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.mensajes_contacto_id_mensaje_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -606,6 +698,8 @@ CREATE TABLE public.usuarios (
     acepta_marketing boolean DEFAULT false NOT NULL,
     fecha_consentimiento timestamp without time zone,
     version_politicas character varying(20),
+    token_recuperacion_hash character varying(64),
+    recuperacion_expira timestamp without time zone,
     CONSTRAINT chk_rol CHECK (((rol)::text = ANY ((ARRAY['cliente'::character varying, 'recepcion'::character varying, 'admin'::character varying])::text[])))
 );
 
@@ -669,7 +763,15 @@ ALTER TABLE public.ventas ALTER COLUMN id_venta ADD GENERATED BY DEFAULT AS IDEN
 
 
 --
--- TOC entry 5143 (class 0 OID 16436)
+-- TOC entry 4955 (class 2604 OID 16597)
+-- Name: horario_salon id_horario_salon; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.horario_salon ALTER COLUMN id_horario_salon SET DEFAULT nextval('public.horario_salon_id_horario_salon_seq'::regclass);
+
+
+--
+-- TOC entry 5183 (class 0 OID 16436)
 -- Dependencies: 228
 -- Data for Name: citas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -677,11 +779,16 @@ ALTER TABLE public.ventas ALTER COLUMN id_venta ADD GENERATED BY DEFAULT AS IDEN
 COPY public.citas (id_cita, id_usuario, id_especialista, id_servicio, id_horario, estado, fecha_creacion) FROM stdin;
 1	6	1	1	36	cancelada	2026-10-21 20:47:27.933106
 2	7	1	1	7	confirmada	2026-10-21 20:50:52.722741
+3	7	3	3	45	pendiente_confirmacion	2026-11-08 14:50:57.718745
+4	16	3	2	46	pendiente_confirmacion	2026-11-08 14:53:12.570851
+5	10	2	1	65	pendiente_confirmacion	2026-11-08 19:23:33.792156
+6	16	2	2	84	confirmada	2026-11-08 19:24:04.07309
+7	16	2	2	100	confirmada	2026-11-08 19:26:15.679546
 \.
 
 
 --
--- TOC entry 5155 (class 0 OID 16550)
+-- TOC entry 5195 (class 0 OID 16550)
 -- Dependencies: 240
 -- Data for Name: configuracion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -692,7 +799,7 @@ COPY public.configuracion (id_config, nombre_salon, telefono_whatsapp, direccion
 
 
 --
--- TOC entry 5151 (class 0 OID 16517)
+-- TOC entry 5191 (class 0 OID 16517)
 -- Dependencies: 236
 -- Data for Name: detalle_venta_producto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -703,20 +810,38 @@ COPY public.detalle_venta_producto (id_detalle, id_venta, id_producto, cantidad,
 
 
 --
--- TOC entry 5137 (class 0 OID 16404)
+-- TOC entry 5198 (class 0 OID 16622)
+-- Dependencies: 243
+-- Data for Name: especialista_servicio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.especialista_servicio (id_especialista, id_servicio, activo) FROM stdin;
+2	2	t
+2	3	t
+2	4	t
+2	1	t
+3	2	t
+3	3	t
+3	4	t
+3	1	t
+\.
+
+
+--
+-- TOC entry 5177 (class 0 OID 16404)
 -- Dependencies: 222
 -- Data for Name: especialistas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.especialistas (id_especialista, nombre, especialidad, estado, telefono) FROM stdin;
 2	Niurka Escate Marca	Manicura	t	954751684
-3	Carlos Rodas	Manicura	t	954751684
 1	Especialista de Prueba	Belleza	f	999999999
+3	Carlos Rodas	Cabello	t	954751684
 \.
 
 
 --
--- TOC entry 5153 (class 0 OID 16537)
+-- TOC entry 5193 (class 0 OID 16537)
 -- Dependencies: 238
 -- Data for Name: galeria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -741,59 +866,189 @@ COPY public.galeria (id_imagen, titulo, categoria, url_imagen, fecha_subida, est
 
 
 --
--- TOC entry 5141 (class 0 OID 16423)
--- Dependencies: 226
--- Data for Name: horarios; Type: TABLE DATA; Schema: public; Owner: postgres
+-- TOC entry 5197 (class 0 OID 16594)
+-- Dependencies: 242
+-- Data for Name: horario_salon; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.horarios (id_horario, id_especialista, fecha, hora_inicio, hora_fin, estado, fecha_bloqueo) FROM stdin;
-1	1	2026-10-26	09:00:00	10:00:00	DISPONIBLE	\N
-2	1	2026-10-25	10:00:00	11:00:00	DISPONIBLE	\N
-3	1	2026-10-24	10:00:00	11:00:00	DISPONIBLE	\N
-4	1	2026-10-22	14:00:00	15:00:00	DISPONIBLE	\N
-5	1	2026-10-27	14:00:00	15:00:00	DISPONIBLE	\N
-6	1	2026-10-27	11:00:00	12:00:00	DISPONIBLE	\N
-8	1	2026-10-23	09:00:00	10:00:00	DISPONIBLE	\N
-9	1	2026-10-28	15:00:00	16:00:00	DISPONIBLE	\N
-10	1	2026-10-24	09:00:00	10:00:00	DISPONIBLE	\N
-11	1	2026-10-22	15:00:00	16:00:00	DISPONIBLE	\N
-12	1	2026-10-27	15:00:00	16:00:00	DISPONIBLE	\N
-13	1	2026-10-25	09:00:00	10:00:00	DISPONIBLE	\N
-14	1	2026-10-26	10:00:00	11:00:00	DISPONIBLE	\N
-15	1	2026-10-23	10:00:00	11:00:00	DISPONIBLE	\N
-16	1	2026-10-28	14:00:00	15:00:00	DISPONIBLE	\N
-17	1	2026-10-28	11:00:00	12:00:00	DISPONIBLE	\N
-18	1	2026-10-28	16:00:00	17:00:00	DISPONIBLE	\N
-19	1	2026-10-27	16:00:00	17:00:00	DISPONIBLE	\N
-20	1	2026-10-22	16:00:00	17:00:00	DISPONIBLE	\N
-21	1	2026-10-25	16:00:00	17:00:00	DISPONIBLE	\N
-22	1	2026-10-24	16:00:00	17:00:00	DISPONIBLE	\N
-23	1	2026-10-26	16:00:00	17:00:00	DISPONIBLE	\N
-24	1	2026-10-23	16:00:00	17:00:00	DISPONIBLE	\N
-25	1	2026-10-24	15:00:00	16:00:00	DISPONIBLE	\N
-26	1	2026-10-22	09:00:00	10:00:00	DISPONIBLE	\N
-27	1	2026-10-27	09:00:00	10:00:00	DISPONIBLE	\N
-28	1	2026-10-25	15:00:00	16:00:00	DISPONIBLE	\N
-29	1	2026-10-26	14:00:00	15:00:00	DISPONIBLE	\N
-30	1	2026-10-26	11:00:00	12:00:00	DISPONIBLE	\N
-31	1	2026-10-23	11:00:00	12:00:00	DISPONIBLE	\N
-32	1	2026-10-28	10:00:00	11:00:00	DISPONIBLE	\N
-33	1	2026-10-23	14:00:00	15:00:00	DISPONIBLE	\N
-34	1	2026-10-26	15:00:00	16:00:00	DISPONIBLE	\N
-35	1	2026-10-27	10:00:00	11:00:00	DISPONIBLE	\N
-37	1	2026-10-25	11:00:00	12:00:00	DISPONIBLE	\N
-38	1	2026-10-25	14:00:00	15:00:00	DISPONIBLE	\N
-39	1	2026-10-24	14:00:00	15:00:00	DISPONIBLE	\N
-40	1	2026-10-24	11:00:00	12:00:00	DISPONIBLE	\N
-41	1	2026-10-23	15:00:00	16:00:00	DISPONIBLE	\N
-42	1	2026-10-28	09:00:00	10:00:00	DISPONIBLE	\N
-7	1	2026-10-22	11:00:00	12:00:00	RESERVADO	\N
-36	1	2026-10-22	10:00:00	11:00:00	DISPONIBLE	\N
+COPY public.horario_salon (id_horario_salon, dia_semana, hora_inicio, hora_fin, intervalo_minutos, activo) FROM stdin;
+1	1	09:00:00	20:00:00	30	t
+2	2	09:00:00	20:00:00	30	t
+3	3	09:00:00	20:00:00	30	t
+4	4	09:00:00	20:00:00	30	t
+5	5	09:00:00	20:00:00	30	t
+6	6	09:00:00	20:00:00	30	t
+7	7	10:00:00	20:00:00	30	t
 \.
 
 
 --
--- TOC entry 5147 (class 0 OID 16480)
+-- TOC entry 5181 (class 0 OID 16423)
+-- Dependencies: 226
+-- Data for Name: horarios; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.horarios (id_horario, id_especialista, fecha, hora_inicio, hora_fin, estado, fecha_bloqueo, id_servicio) FROM stdin;
+1	1	2026-10-26	09:00:00	10:00:00	DISPONIBLE	\N	\N
+2	1	2026-10-25	10:00:00	11:00:00	DISPONIBLE	\N	\N
+3	1	2026-10-24	10:00:00	11:00:00	DISPONIBLE	\N	\N
+4	1	2026-10-22	14:00:00	15:00:00	DISPONIBLE	\N	\N
+5	1	2026-10-27	14:00:00	15:00:00	DISPONIBLE	\N	\N
+6	1	2026-10-27	11:00:00	12:00:00	DISPONIBLE	\N	\N
+8	1	2026-10-23	09:00:00	10:00:00	DISPONIBLE	\N	\N
+9	1	2026-10-28	15:00:00	16:00:00	DISPONIBLE	\N	\N
+10	1	2026-10-24	09:00:00	10:00:00	DISPONIBLE	\N	\N
+11	1	2026-10-22	15:00:00	16:00:00	DISPONIBLE	\N	\N
+12	1	2026-10-27	15:00:00	16:00:00	DISPONIBLE	\N	\N
+13	1	2026-10-25	09:00:00	10:00:00	DISPONIBLE	\N	\N
+14	1	2026-10-26	10:00:00	11:00:00	DISPONIBLE	\N	\N
+15	1	2026-10-23	10:00:00	11:00:00	DISPONIBLE	\N	\N
+16	1	2026-10-28	14:00:00	15:00:00	DISPONIBLE	\N	\N
+17	1	2026-10-28	11:00:00	12:00:00	DISPONIBLE	\N	\N
+18	1	2026-10-28	16:00:00	17:00:00	DISPONIBLE	\N	\N
+19	1	2026-10-27	16:00:00	17:00:00	DISPONIBLE	\N	\N
+20	1	2026-10-22	16:00:00	17:00:00	DISPONIBLE	\N	\N
+21	1	2026-10-25	16:00:00	17:00:00	DISPONIBLE	\N	\N
+22	1	2026-10-24	16:00:00	17:00:00	DISPONIBLE	\N	\N
+23	1	2026-10-26	16:00:00	17:00:00	DISPONIBLE	\N	\N
+24	1	2026-10-23	16:00:00	17:00:00	DISPONIBLE	\N	\N
+25	1	2026-10-24	15:00:00	16:00:00	DISPONIBLE	\N	\N
+26	1	2026-10-22	09:00:00	10:00:00	DISPONIBLE	\N	\N
+27	1	2026-10-27	09:00:00	10:00:00	DISPONIBLE	\N	\N
+28	1	2026-10-25	15:00:00	16:00:00	DISPONIBLE	\N	\N
+29	1	2026-10-26	14:00:00	15:00:00	DISPONIBLE	\N	\N
+30	1	2026-10-26	11:00:00	12:00:00	DISPONIBLE	\N	\N
+31	1	2026-10-23	11:00:00	12:00:00	DISPONIBLE	\N	\N
+32	1	2026-10-28	10:00:00	11:00:00	DISPONIBLE	\N	\N
+33	1	2026-10-23	14:00:00	15:00:00	DISPONIBLE	\N	\N
+34	1	2026-10-26	15:00:00	16:00:00	DISPONIBLE	\N	\N
+35	1	2026-10-27	10:00:00	11:00:00	DISPONIBLE	\N	\N
+37	1	2026-10-25	11:00:00	12:00:00	DISPONIBLE	\N	\N
+38	1	2026-10-25	14:00:00	15:00:00	DISPONIBLE	\N	\N
+39	1	2026-10-24	14:00:00	15:00:00	DISPONIBLE	\N	\N
+40	1	2026-10-24	11:00:00	12:00:00	DISPONIBLE	\N	\N
+41	1	2026-10-23	15:00:00	16:00:00	DISPONIBLE	\N	\N
+42	1	2026-10-28	09:00:00	10:00:00	DISPONIBLE	\N	\N
+7	1	2026-10-22	11:00:00	12:00:00	RESERVADO	\N	\N
+36	1	2026-10-22	10:00:00	11:00:00	DISPONIBLE	\N	\N
+43	2	2026-11-10	10:00:00	11:00:00	DISPONIBLE	\N	\N
+44	2	2026-11-10	09:00:00	10:00:00	DISPONIBLE	\N	\N
+84	2	2026-11-14	10:00:00	11:00:00	RESERVADO	\N	\N
+45	3	2026-11-10	10:00:00	11:00:00	RESERVADO	\N	\N
+92	2	2026-11-16	09:00:00	10:00:00	DISPONIBLE	\N	\N
+46	3	2026-11-10	09:00:00	10:00:00	RESERVADO	\N	\N
+47	2	2026-11-11	17:00:00	18:00:00	DISPONIBLE	\N	\N
+48	2	2026-11-11	16:00:00	17:00:00	DISPONIBLE	\N	\N
+49	2	2026-11-11	15:00:00	16:00:00	DISPONIBLE	\N	\N
+50	2	2026-11-11	14:00:00	15:00:00	DISPONIBLE	\N	\N
+51	2	2026-11-11	13:00:00	14:00:00	DISPONIBLE	\N	\N
+52	2	2026-11-11	12:00:00	13:00:00	DISPONIBLE	\N	\N
+53	2	2026-11-11	11:00:00	12:00:00	DISPONIBLE	\N	\N
+54	2	2026-11-11	10:00:00	11:00:00	DISPONIBLE	\N	\N
+55	2	2026-11-11	09:00:00	10:00:00	DISPONIBLE	\N	\N
+56	3	2026-11-11	17:00:00	18:00:00	DISPONIBLE	\N	\N
+57	3	2026-11-11	16:00:00	17:00:00	DISPONIBLE	\N	\N
+58	3	2026-11-11	15:00:00	16:00:00	DISPONIBLE	\N	\N
+59	3	2026-11-11	14:00:00	15:00:00	DISPONIBLE	\N	\N
+60	3	2026-11-11	13:00:00	14:00:00	DISPONIBLE	\N	\N
+61	3	2026-11-11	12:00:00	13:00:00	DISPONIBLE	\N	\N
+62	3	2026-11-11	11:00:00	12:00:00	DISPONIBLE	\N	\N
+63	3	2026-11-11	10:00:00	11:00:00	DISPONIBLE	\N	\N
+64	3	2026-11-11	09:00:00	10:00:00	DISPONIBLE	\N	\N
+66	2	2027-01-26	16:00:00	17:00:00	DISPONIBLE	\N	\N
+67	2	2027-01-26	15:00:00	16:00:00	DISPONIBLE	\N	\N
+68	2	2027-01-26	14:00:00	15:00:00	DISPONIBLE	\N	\N
+69	2	2027-01-26	13:00:00	14:00:00	DISPONIBLE	\N	\N
+70	2	2027-01-26	12:00:00	13:00:00	DISPONIBLE	\N	\N
+71	2	2027-01-26	11:00:00	12:00:00	DISPONIBLE	\N	\N
+72	2	2027-01-26	10:00:00	11:00:00	DISPONIBLE	\N	\N
+73	2	2027-01-26	09:00:00	10:00:00	DISPONIBLE	\N	\N
+74	3	2027-01-26	17:00:00	18:00:00	DISPONIBLE	\N	\N
+75	3	2027-01-26	16:00:00	17:00:00	DISPONIBLE	\N	\N
+76	3	2027-01-26	15:00:00	16:00:00	DISPONIBLE	\N	\N
+77	3	2027-01-26	14:00:00	15:00:00	DISPONIBLE	\N	\N
+78	3	2027-01-26	13:00:00	14:00:00	DISPONIBLE	\N	\N
+79	3	2027-01-26	12:00:00	13:00:00	DISPONIBLE	\N	\N
+80	3	2027-01-26	11:00:00	12:00:00	DISPONIBLE	\N	\N
+81	3	2027-01-26	10:00:00	11:00:00	DISPONIBLE	\N	\N
+82	3	2027-01-26	09:00:00	10:00:00	DISPONIBLE	\N	\N
+65	2	2027-01-26	17:00:00	18:00:00	RESERVADO	\N	\N
+83	2	2026-11-14	09:00:00	10:00:00	DISPONIBLE	\N	\N
+85	2	2026-11-14	11:00:00	12:00:00	DISPONIBLE	\N	\N
+86	2	2026-11-14	12:00:00	13:00:00	DISPONIBLE	\N	\N
+87	2	2026-11-14	13:00:00	14:00:00	DISPONIBLE	\N	\N
+88	2	2026-11-14	14:00:00	15:00:00	DISPONIBLE	\N	\N
+89	2	2026-11-14	15:00:00	16:00:00	DISPONIBLE	\N	\N
+90	2	2026-11-14	16:00:00	17:00:00	DISPONIBLE	\N	\N
+91	2	2026-11-14	17:00:00	18:00:00	DISPONIBLE	\N	\N
+93	2	2026-11-16	10:00:00	11:00:00	DISPONIBLE	\N	\N
+94	2	2026-11-16	11:00:00	12:00:00	DISPONIBLE	\N	\N
+95	2	2026-11-16	12:00:00	13:00:00	DISPONIBLE	\N	\N
+96	2	2026-11-16	13:00:00	14:00:00	DISPONIBLE	\N	\N
+97	2	2026-11-16	14:00:00	15:00:00	DISPONIBLE	\N	\N
+98	2	2026-11-16	15:00:00	16:00:00	DISPONIBLE	\N	\N
+99	2	2026-11-16	16:00:00	17:00:00	DISPONIBLE	\N	\N
+101	2	2026-11-17	09:00:00	10:00:00	DISPONIBLE	\N	\N
+102	2	2026-11-17	10:00:00	11:00:00	DISPONIBLE	\N	\N
+103	2	2026-11-17	11:00:00	12:00:00	DISPONIBLE	\N	\N
+104	2	2026-11-17	12:00:00	13:00:00	DISPONIBLE	\N	\N
+105	2	2026-11-17	13:00:00	14:00:00	DISPONIBLE	\N	\N
+106	2	2026-11-17	14:00:00	15:00:00	DISPONIBLE	\N	\N
+107	2	2026-11-17	15:00:00	16:00:00	DISPONIBLE	\N	\N
+108	2	2026-11-17	16:00:00	17:00:00	DISPONIBLE	\N	\N
+109	2	2026-11-17	17:00:00	18:00:00	DISPONIBLE	\N	\N
+110	2	2026-11-30	09:00:00	10:00:00	DISPONIBLE	\N	\N
+111	2	2026-11-30	10:00:00	11:00:00	DISPONIBLE	\N	\N
+112	2	2026-11-30	11:00:00	12:00:00	DISPONIBLE	\N	\N
+113	2	2026-11-30	12:00:00	13:00:00	DISPONIBLE	\N	\N
+114	2	2026-11-30	13:00:00	14:00:00	DISPONIBLE	\N	\N
+115	2	2026-11-30	14:00:00	15:00:00	DISPONIBLE	\N	\N
+116	2	2026-11-30	15:00:00	16:00:00	DISPONIBLE	\N	\N
+117	2	2026-11-30	16:00:00	17:00:00	DISPONIBLE	\N	\N
+118	2	2026-11-30	17:00:00	18:00:00	DISPONIBLE	\N	\N
+119	2	2026-11-23	09:00:00	10:00:00	DISPONIBLE	\N	\N
+120	2	2026-11-23	10:00:00	11:00:00	DISPONIBLE	\N	\N
+121	2	2026-11-23	11:00:00	12:00:00	DISPONIBLE	\N	\N
+122	2	2026-11-23	12:00:00	13:00:00	DISPONIBLE	\N	\N
+123	2	2026-11-23	13:00:00	14:00:00	DISPONIBLE	\N	\N
+124	2	2026-11-23	14:00:00	15:00:00	DISPONIBLE	\N	\N
+125	2	2026-11-23	15:00:00	16:00:00	DISPONIBLE	\N	\N
+126	2	2026-11-23	16:00:00	17:00:00	DISPONIBLE	\N	\N
+127	2	2026-11-23	17:00:00	18:00:00	DISPONIBLE	\N	\N
+100	2	2026-11-16	17:00:00	18:00:00	RESERVADO	\N	\N
+128	3	2026-11-16	09:00:00	10:00:00	DISPONIBLE	\N	\N
+129	3	2026-11-16	10:00:00	11:00:00	DISPONIBLE	\N	\N
+130	3	2026-11-16	11:00:00	12:00:00	DISPONIBLE	\N	\N
+131	3	2026-11-16	12:00:00	13:00:00	DISPONIBLE	\N	\N
+132	3	2026-11-16	13:00:00	14:00:00	DISPONIBLE	\N	\N
+133	3	2026-11-16	14:00:00	15:00:00	DISPONIBLE	\N	\N
+134	3	2026-11-16	15:00:00	16:00:00	DISPONIBLE	\N	\N
+135	3	2026-11-16	16:00:00	17:00:00	DISPONIBLE	\N	\N
+136	3	2026-11-16	17:00:00	18:00:00	DISPONIBLE	\N	\N
+137	3	2026-12-11	09:00:00	10:00:00	DISPONIBLE	\N	\N
+138	3	2026-12-11	10:00:00	11:00:00	DISPONIBLE	\N	\N
+139	3	2026-12-11	11:00:00	12:00:00	DISPONIBLE	\N	\N
+140	3	2026-12-11	12:00:00	13:00:00	DISPONIBLE	\N	\N
+141	3	2026-12-11	13:00:00	14:00:00	DISPONIBLE	\N	\N
+142	3	2026-12-11	14:00:00	15:00:00	DISPONIBLE	\N	\N
+143	3	2026-12-11	15:00:00	16:00:00	DISPONIBLE	\N	\N
+144	3	2026-12-11	16:00:00	17:00:00	DISPONIBLE	\N	\N
+145	3	2026-12-11	17:00:00	18:00:00	DISPONIBLE	\N	\N
+\.
+
+
+--
+-- TOC entry 5200 (class 0 OID 16644)
+-- Dependencies: 245
+-- Data for Name: mensajes_contacto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.mensajes_contacto (id_mensaje, nombre, correo, telefono, mensaje, acepta_privacidad, fecha_envio) FROM stdin;
+\.
+
+
+--
+-- TOC entry 5187 (class 0 OID 16480)
 -- Dependencies: 232
 -- Data for Name: productos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -808,18 +1063,19 @@ COPY public.productos (id_producto, nombre, categoria, precio, stock, descripcio
 
 
 --
--- TOC entry 5145 (class 0 OID 16465)
+-- TOC entry 5185 (class 0 OID 16465)
 -- Dependencies: 230
 -- Data for Name: promociones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.promociones (id_promocion, nombre, descuento, codigo, fecha_expiracion, descripcion, estado) FROM stdin;
 1	promo venarano	10	PROMO10	2026-11-07	descuento solo en pintados de cabello	t
+2	promo verano	20	BELLEZA20	2026-11-21	Disfruta un momento para ti con un descuento especial en nuestros servicios de belleza. Presenta este cupón al reservar y renueva tu look en NOVA Beauty Salon.	t
 \.
 
 
 --
--- TOC entry 5139 (class 0 OID 16412)
+-- TOC entry 5179 (class 0 OID 16412)
 -- Dependencies: 224
 -- Data for Name: servicios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -833,25 +1089,26 @@ COPY public.servicios (id_servicio, nombre, descripcion, precio, duracion_minuto
 
 
 --
--- TOC entry 5135 (class 0 OID 16390)
+-- TOC entry 5175 (class 0 OID 16390)
 -- Dependencies: 220
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.usuarios (id_usuario, nombre, email, "contraseña", rol, cuenta_verificada, token_verificacion, fecha_registro, telefono, acepta_privacidad, acepta_terminos, acepta_marketing, fecha_consentimiento, version_politicas) FROM stdin;
-3	Maicol Villanueva	maicol10villanueva@gmail.com	$2a$10$SynV/9chC6jWpOhyYSgAKeLeev1quQ9Jq4kkirXcymxIVN3cx6fiq	admin	t	89e1fb7b-3c00-4dd0-8249-5fa64d7f633c	2026-10-20 23:29:37.479127	921414198	f	f	f	\N	\N
-7	David Sanchez	navidsanchez@gmail.com	$2a$10$s8gWeQq/rH3/vxj5zxLndO56diffZpc1LC/DQOFYV4RPo7ysjQYsK	cliente	t	\N	2026-10-21 20:50:22.404579	98547514	f	f	f	\N	\N
-6	Niurka Escate Marca	niurkaescate@gmial.com	$2a$10$bXc/r4U7k/NErBCtorGzVO5jqxW8VNKUvZW/hoLMv3wds/K9T9Z0O	cliente	t	\N	2026-10-21 18:51:04.25526	954751685	f	f	f	\N	\N
-8	Enrique Gil Gonzales	enriquegil@gmail.com	$2a$10$ZXnNHFtyNm.TCU8DBvLu3.o2x2I34A3eezDGYaszMeSnF25D6XeTy	cliente	t	\N	2026-10-22 10:55:07.297889	954214785	f	f	f	\N	\N
-9	Carlos Rodas	carlosrodas@gmail.com	$2a$10$mEcv8Du2R9VLyYzGz7K3QuZBFkWJPosvvXPuhTI0QOm2uCZcfjjaC	cliente	t	\N	2026-10-22 10:56:57.12093	98541354	f	f	f	\N	\N
-10	Piero Martel	pieromartel@gmail.com	$2a$10$ZrgNWD9gHVVC0mEESwuWze9F36bIi/4byNAfL/.Bx1e4YPj3SrRs.	cliente	t	\N	2026-10-22 10:58:52.184289	985210235	f	f	f	\N	\N
-13	Niurka Escate Marcaa	darky.z7z@gmail.com	$2a$10$O7g3v4pdcvSgLUMtb6kYYeKN431lOxW0wQwAdbu0UFzKHJ6uA36DC	cliente	t	\N	2026-10-22 12:36:45.99213	987412012	f	f	f	\N	\N
-16	Enrique Gil Gonzales	darky.vs10@gmail.com	$2a$10$vVQYAAAsAxrrw4VkUhILlu1TCN0J.SZMn7MNogroL5t835yHaOuqq	cliente	t	\N	2026-10-22 13:13:46.106452	920014572	t	t	t	2026-10-22 13:13:46.107964	2026-10
+COPY public.usuarios (id_usuario, nombre, email, "contraseña", rol, cuenta_verificada, token_verificacion, fecha_registro, telefono, acepta_privacidad, acepta_terminos, acepta_marketing, fecha_consentimiento, version_politicas, token_recuperacion_hash, recuperacion_expira) FROM stdin;
+3	Maicol Villanueva	maicol10villanueva@gmail.com	$2a$10$SynV/9chC6jWpOhyYSgAKeLeev1quQ9Jq4kkirXcymxIVN3cx6fiq	admin	t	89e1fb7b-3c00-4dd0-8249-5fa64d7f633c	2026-10-20 23:29:37.479127	921414198	f	f	f	\N	\N	\N	\N
+7	David Sanchez	navidsanchez@gmail.com	$2a$10$s8gWeQq/rH3/vxj5zxLndO56diffZpc1LC/DQOFYV4RPo7ysjQYsK	cliente	t	\N	2026-10-21 20:50:22.404579	98547514	f	f	f	\N	\N	\N	\N
+6	Niurka Escate Marca	niurkaescate@gmial.com	$2a$10$bXc/r4U7k/NErBCtorGzVO5jqxW8VNKUvZW/hoLMv3wds/K9T9Z0O	cliente	t	\N	2026-10-21 18:51:04.25526	954751685	f	f	f	\N	\N	\N	\N
+8	Enrique Gil Gonzales	enriquegil@gmail.com	$2a$10$ZXnNHFtyNm.TCU8DBvLu3.o2x2I34A3eezDGYaszMeSnF25D6XeTy	cliente	t	\N	2026-10-22 10:55:07.297889	954214785	f	f	f	\N	\N	\N	\N
+9	Carlos Rodas	carlosrodas@gmail.com	$2a$10$mEcv8Du2R9VLyYzGz7K3QuZBFkWJPosvvXPuhTI0QOm2uCZcfjjaC	cliente	t	\N	2026-10-22 10:56:57.12093	98541354	f	f	f	\N	\N	\N	\N
+10	Piero Martel	pieromartel@gmail.com	$2a$10$ZrgNWD9gHVVC0mEESwuWze9F36bIi/4byNAfL/.Bx1e4YPj3SrRs.	cliente	t	\N	2026-10-22 10:58:52.184289	985210235	f	f	f	\N	\N	\N	\N
+13	Niurka Escate Marcaa	darky.z7z@gmail.com	$2a$10$O7g3v4pdcvSgLUMtb6kYYeKN431lOxW0wQwAdbu0UFzKHJ6uA36DC	cliente	t	\N	2026-10-22 12:36:45.99213	987412012	f	f	f	\N	\N	\N	\N
+16	Enrique Gil Gonzales	darky.vs10@gmail.com	$2a$10$vVQYAAAsAxrrw4VkUhILlu1TCN0J.SZMn7MNogroL5t835yHaOuqq	cliente	t	\N	2026-10-22 13:13:46.106452	920014572	t	t	t	2026-10-22 13:13:46.107964	2026-10	\N	\N
+17	juan Sanchez	darky.z7zz@gmail.com	$2a$10$0X0c43jmiqeG/w/b4KgGFeh8w6sSOHo3YOXwJ9T26gQbCB1ESvpVG	cliente	f	416d1d35-86a2-403a-986b-74fd1859a6c0	2026-11-08 14:12:44.033671	985201347	t	t	t	2026-11-08 14:12:44.043681	2026-10	\N	\N
 \.
 
 
 --
--- TOC entry 5149 (class 0 OID 16492)
+-- TOC entry 5189 (class 0 OID 16492)
 -- Dependencies: 234
 -- Data for Name: ventas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -860,20 +1117,21 @@ COPY public.ventas (id_venta, id_cliente, id_cita, id_promocion, metodo_pago, mo
 1	\N	\N	\N	Yape	50.00	2026-10-21 22:09:26.885244	producto	\N	completada	\N	\N
 2	6	\N	\N	Efectivo	20.00	2026-10-21 23:34:02.022609	producto	\N	completada	\N	\N
 3	6	\N	\N	Yape	50.00	2026-10-22 01:04:05.753089	servicio	1	completada	\N	\N
+4	8	\N	\N	Yape	120.00	2026-11-08 13:12:24.475811	servicio	3	completada	\N	\N
 \.
 
 
 --
--- TOC entry 5161 (class 0 OID 0)
+-- TOC entry 5207 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: citas_id_cita_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.citas_id_cita_seq', 2, true);
+SELECT pg_catalog.setval('public.citas_id_cita_seq', 7, true);
 
 
 --
--- TOC entry 5162 (class 0 OID 0)
+-- TOC entry 5208 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: configuracion_id_config_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -882,7 +1140,7 @@ SELECT pg_catalog.setval('public.configuracion_id_config_seq', 1, true);
 
 
 --
--- TOC entry 5163 (class 0 OID 0)
+-- TOC entry 5209 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: detalle_venta_producto_id_detalle_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -891,7 +1149,7 @@ SELECT pg_catalog.setval('public.detalle_venta_producto_id_detalle_seq', 1, true
 
 
 --
--- TOC entry 5164 (class 0 OID 0)
+-- TOC entry 5210 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: especialistas_id_especialista_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -900,7 +1158,7 @@ SELECT pg_catalog.setval('public.especialistas_id_especialista_seq', 3, true);
 
 
 --
--- TOC entry 5165 (class 0 OID 0)
+-- TOC entry 5211 (class 0 OID 0)
 -- Dependencies: 237
 -- Name: galeria_id_imagen_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -909,16 +1167,34 @@ SELECT pg_catalog.setval('public.galeria_id_imagen_seq', 15, true);
 
 
 --
--- TOC entry 5166 (class 0 OID 0)
+-- TOC entry 5212 (class 0 OID 0)
+-- Dependencies: 241
+-- Name: horario_salon_id_horario_salon_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.horario_salon_id_horario_salon_seq', 7, true);
+
+
+--
+-- TOC entry 5213 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: horarios_id_horario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_id_horario_seq', 42, true);
+SELECT pg_catalog.setval('public.horarios_id_horario_seq', 145, true);
 
 
 --
--- TOC entry 5167 (class 0 OID 0)
+-- TOC entry 5214 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: mensajes_contacto_id_mensaje_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.mensajes_contacto_id_mensaje_seq', 1, false);
+
+
+--
+-- TOC entry 5215 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: productos_id_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -927,16 +1203,16 @@ SELECT pg_catalog.setval('public.productos_id_producto_seq', 5, true);
 
 
 --
--- TOC entry 5168 (class 0 OID 0)
+-- TOC entry 5216 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: promociones_id_promocion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.promociones_id_promocion_seq', 1, true);
+SELECT pg_catalog.setval('public.promociones_id_promocion_seq', 2, true);
 
 
 --
--- TOC entry 5169 (class 0 OID 0)
+-- TOC entry 5217 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: servicios_id_servicio_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -945,25 +1221,25 @@ SELECT pg_catalog.setval('public.servicios_id_servicio_seq', 4, true);
 
 
 --
--- TOC entry 5170 (class 0 OID 0)
+-- TOC entry 5218 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: usuarios_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_id_usuario_seq', 16, true);
+SELECT pg_catalog.setval('public.usuarios_id_usuario_seq', 17, true);
 
 
 --
--- TOC entry 5171 (class 0 OID 0)
+-- TOC entry 5219 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: ventas_id_venta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ventas_id_venta_seq', 3, true);
+SELECT pg_catalog.setval('public.ventas_id_venta_seq', 4, true);
 
 
 --
--- TOC entry 4960 (class 2606 OID 16443)
+-- TOC entry 4988 (class 2606 OID 16443)
 -- Name: citas citas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -972,7 +1248,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 4976 (class 2606 OID 16560)
+-- TOC entry 5005 (class 2606 OID 16560)
 -- Name: configuracion configuracion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -981,7 +1257,7 @@ ALTER TABLE ONLY public.configuracion
 
 
 --
--- TOC entry 4971 (class 2606 OID 16525)
+-- TOC entry 5000 (class 2606 OID 16525)
 -- Name: detalle_venta_producto detalle_venta_producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -990,7 +1266,16 @@ ALTER TABLE ONLY public.detalle_venta_producto
 
 
 --
--- TOC entry 4954 (class 2606 OID 16410)
+-- TOC entry 5010 (class 2606 OID 16630)
+-- Name: especialista_servicio especialista_servicio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.especialista_servicio
+    ADD CONSTRAINT especialista_servicio_pkey PRIMARY KEY (id_especialista, id_servicio);
+
+
+--
+-- TOC entry 4978 (class 2606 OID 16410)
 -- Name: especialistas especialistas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -999,7 +1284,7 @@ ALTER TABLE ONLY public.especialistas
 
 
 --
--- TOC entry 4974 (class 2606 OID 16548)
+-- TOC entry 5003 (class 2606 OID 16548)
 -- Name: galeria galeria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1008,7 +1293,16 @@ ALTER TABLE ONLY public.galeria
 
 
 --
--- TOC entry 4958 (class 2606 OID 16429)
+-- TOC entry 5007 (class 2606 OID 16610)
+-- Name: horario_salon horario_salon_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.horario_salon
+    ADD CONSTRAINT horario_salon_pkey PRIMARY KEY (id_horario_salon);
+
+
+--
+-- TOC entry 4984 (class 2606 OID 16429)
 -- Name: horarios horarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1017,7 +1311,16 @@ ALTER TABLE ONLY public.horarios
 
 
 --
--- TOC entry 4966 (class 2606 OID 16490)
+-- TOC entry 5013 (class 2606 OID 16658)
+-- Name: mensajes_contacto mensajes_contacto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.mensajes_contacto
+    ADD CONSTRAINT mensajes_contacto_pkey PRIMARY KEY (id_mensaje);
+
+
+--
+-- TOC entry 4995 (class 2606 OID 16490)
 -- Name: productos productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1026,7 +1329,7 @@ ALTER TABLE ONLY public.productos
 
 
 --
--- TOC entry 4962 (class 2606 OID 16478)
+-- TOC entry 4991 (class 2606 OID 16478)
 -- Name: promociones promociones_codigo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1035,7 +1338,7 @@ ALTER TABLE ONLY public.promociones
 
 
 --
--- TOC entry 4964 (class 2606 OID 16476)
+-- TOC entry 4993 (class 2606 OID 16476)
 -- Name: promociones promociones_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1044,7 +1347,7 @@ ALTER TABLE ONLY public.promociones
 
 
 --
--- TOC entry 4956 (class 2606 OID 16421)
+-- TOC entry 4982 (class 2606 OID 16421)
 -- Name: servicios servicios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1053,7 +1356,7 @@ ALTER TABLE ONLY public.servicios
 
 
 --
--- TOC entry 4950 (class 2606 OID 16401)
+-- TOC entry 4974 (class 2606 OID 16401)
 -- Name: usuarios usuarios_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1062,7 +1365,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
--- TOC entry 4952 (class 2606 OID 16399)
+-- TOC entry 4976 (class 2606 OID 16399)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1071,7 +1374,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
--- TOC entry 4969 (class 2606 OID 16500)
+-- TOC entry 4998 (class 2606 OID 16500)
 -- Name: ventas ventas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1080,7 +1383,15 @@ ALTER TABLE ONLY public.ventas
 
 
 --
--- TOC entry 4972 (class 1259 OID 16586)
+-- TOC entry 4989 (class 1259 OID 16618)
+-- Name: idx_citas_horario_estado; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_citas_horario_estado ON public.citas USING btree (id_horario, estado);
+
+
+--
+-- TOC entry 5001 (class 1259 OID 16586)
 -- Name: idx_detalle_venta_producto_venta; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1088,7 +1399,47 @@ CREATE INDEX idx_detalle_venta_producto_venta ON public.detalle_venta_producto U
 
 
 --
--- TOC entry 4967 (class 1259 OID 16585)
+-- TOC entry 5011 (class 1259 OID 16641)
+-- Name: idx_especialista_servicio_activo; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_especialista_servicio_activo ON public.especialista_servicio USING btree (id_servicio, activo);
+
+
+--
+-- TOC entry 4979 (class 1259 OID 16619)
+-- Name: idx_especialistas_activos; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_especialistas_activos ON public.especialistas USING btree (estado, especialidad);
+
+
+--
+-- TOC entry 4985 (class 1259 OID 16617)
+-- Name: idx_horarios_fecha_estado; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_horarios_fecha_estado ON public.horarios USING btree (fecha, estado);
+
+
+--
+-- TOC entry 4980 (class 1259 OID 16620)
+-- Name: idx_servicios_activos; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_servicios_activos ON public.servicios USING btree (estado, categoria);
+
+
+--
+-- TOC entry 4971 (class 1259 OID 16642)
+-- Name: idx_usuarios_token_recuperacion; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_usuarios_token_recuperacion ON public.usuarios USING btree (token_recuperacion_hash) WHERE (token_recuperacion_hash IS NOT NULL);
+
+
+--
+-- TOC entry 4996 (class 1259 OID 16585)
 -- Name: idx_ventas_fecha_estado; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1096,7 +1447,23 @@ CREATE INDEX idx_ventas_fecha_estado ON public.ventas USING btree (fecha_venta, 
 
 
 --
--- TOC entry 4948 (class 1259 OID 16402)
+-- TOC entry 5008 (class 1259 OID 16621)
+-- Name: uq_horario_salon_dia; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX uq_horario_salon_dia ON public.horario_salon USING btree (dia_semana);
+
+
+--
+-- TOC entry 4986 (class 1259 OID 16616)
+-- Name: uq_horarios_generados; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX uq_horarios_generados ON public.horarios USING btree (id_especialista, id_servicio, fecha, hora_inicio) WHERE (id_servicio IS NOT NULL);
+
+
+--
+-- TOC entry 4972 (class 1259 OID 16402)
 -- Name: uq_usuarios_email_lower; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1104,7 +1471,25 @@ CREATE UNIQUE INDEX uq_usuarios_email_lower ON public.usuarios USING btree (lowe
 
 
 --
--- TOC entry 4978 (class 2606 OID 16449)
+-- TOC entry 5025 (class 2606 OID 16631)
+-- Name: especialista_servicio especialista_servicio_id_especialista_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.especialista_servicio
+    ADD CONSTRAINT especialista_servicio_id_especialista_fkey FOREIGN KEY (id_especialista) REFERENCES public.especialistas(id_especialista);
+
+
+--
+-- TOC entry 5026 (class 2606 OID 16636)
+-- Name: especialista_servicio especialista_servicio_id_servicio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.especialista_servicio
+    ADD CONSTRAINT especialista_servicio_id_servicio_fkey FOREIGN KEY (id_servicio) REFERENCES public.servicios(id_servicio);
+
+
+--
+-- TOC entry 5016 (class 2606 OID 16449)
 -- Name: citas fk_citas_especialista; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1113,7 +1498,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 4979 (class 2606 OID 16459)
+-- TOC entry 5017 (class 2606 OID 16459)
 -- Name: citas fk_citas_horario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1122,7 +1507,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 4980 (class 2606 OID 16454)
+-- TOC entry 5018 (class 2606 OID 16454)
 -- Name: citas fk_citas_servicio; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1131,7 +1516,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 4981 (class 2606 OID 16444)
+-- TOC entry 5019 (class 2606 OID 16444)
 -- Name: citas fk_citas_usuario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1140,7 +1525,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 4985 (class 2606 OID 16531)
+-- TOC entry 5023 (class 2606 OID 16531)
 -- Name: detalle_venta_producto fk_detalle_producto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1149,7 +1534,7 @@ ALTER TABLE ONLY public.detalle_venta_producto
 
 
 --
--- TOC entry 4986 (class 2606 OID 16526)
+-- TOC entry 5024 (class 2606 OID 16526)
 -- Name: detalle_venta_producto fk_detalle_venta; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1158,7 +1543,7 @@ ALTER TABLE ONLY public.detalle_venta_producto
 
 
 --
--- TOC entry 4977 (class 2606 OID 16430)
+-- TOC entry 5014 (class 2606 OID 16430)
 -- Name: horarios fk_horarios_especialista; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1167,7 +1552,16 @@ ALTER TABLE ONLY public.horarios
 
 
 --
--- TOC entry 4982 (class 2606 OID 16506)
+-- TOC entry 5015 (class 2606 OID 16611)
+-- Name: horarios fk_horarios_servicio; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.horarios
+    ADD CONSTRAINT fk_horarios_servicio FOREIGN KEY (id_servicio) REFERENCES public.servicios(id_servicio);
+
+
+--
+-- TOC entry 5020 (class 2606 OID 16506)
 -- Name: ventas fk_ventas_cita; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1176,7 +1570,7 @@ ALTER TABLE ONLY public.ventas
 
 
 --
--- TOC entry 4983 (class 2606 OID 16501)
+-- TOC entry 5021 (class 2606 OID 16501)
 -- Name: ventas fk_ventas_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1185,7 +1579,7 @@ ALTER TABLE ONLY public.ventas
 
 
 --
--- TOC entry 4984 (class 2606 OID 16511)
+-- TOC entry 5022 (class 2606 OID 16511)
 -- Name: ventas fk_ventas_promocion; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1193,11 +1587,11 @@ ALTER TABLE ONLY public.ventas
     ADD CONSTRAINT fk_ventas_promocion FOREIGN KEY (id_promocion) REFERENCES public.promociones(id_promocion);
 
 
--- Completed on 2026-11-03 22:37:47
+-- Completed on 2026-11-09 18:36:09
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict PTO7GVNe2agtknYGcaakYKMk5wwD1I0fbJnQq9cIoScEBLnGKGQJhNsAdpk3o0t
+\unrestrict 1WRMSFZLbyrW9b9Hs0GbgiRT9JlO0csZoZCMnsl9mLkfLiHihfDQKzbU8qKVUia
 
