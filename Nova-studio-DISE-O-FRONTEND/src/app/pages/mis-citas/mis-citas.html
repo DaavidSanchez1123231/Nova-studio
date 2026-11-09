@@ -1,0 +1,106 @@
+<div class="reservations-page">
+
+  <nav class="reservations-navbar">
+    <a routerLink="/" class="logo">
+      <i class="fas fa-spa" aria-hidden="true"></i>
+      <span>NOVA <small>BEAUTY SALON</small></span>
+    </a>
+
+    <div class="nav-links">
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/nuestros-servicios">Servicios</a>
+      <a routerLink="/reservas">Reservar</a>
+      <a routerLink="/mis-citas" class="active">Mis citas</a>
+      <a routerLink="/promociones-publico">Promociones</a>
+      <a routerLink="/nosotros">Nosotros</a>
+      <a routerLink="/contacto">Contacto</a>
+    </div>
+
+    <div class="user-panel" *ngIf="usuarioLogeado">
+      <span id="usuario-logeado">
+        <i class="fas fa-user-circle" aria-hidden="true"></i>
+        <span class="user-details">{{ usuarioLogeado }}<small>{{ rolLogeado }}</small></span>
+      </span>
+      <button type="button" id="logout-btn" (click)="cerrarSesion()">
+        <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Salir
+      </button>
+    </div>
+  </nav>
+
+  <main class="citas-main">
+    <header class="citas-head">
+      <h1>Mis citas</h1>
+      <p>Revisa tus reservas. Puedes cancelar o reprogramar hasta 2 horas antes de la cita.</p>
+    </header>
+
+    <p class="aviso" *ngIf="aviso" [class.aviso-ok]="avisoTipo === 'ok'" [class.aviso-error]="avisoTipo === 'error'"
+       role="status" aria-live="polite">{{ aviso }}</p>
+
+    <p class="vacio" *ngIf="cargando">Cargando tus citas...</p>
+
+    <div class="vacio" *ngIf="!cargando && citas.length === 0">
+      <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+      <p>Aún no tienes citas.</p>
+      <a routerLink="/reservas" class="btn-primario">Reservar mi primera cita</a>
+    </div>
+
+    <ul class="lista-citas" *ngIf="!cargando && citas.length > 0">
+      <li class="cita-card" *ngFor="let c of citas">
+
+        <div class="cita-info">
+          <h2>{{ c.servicio }}</h2>
+          <p><i class="fas fa-user" aria-hidden="true"></i> {{ c.especialista }}</p>
+          <p><i class="fas fa-calendar-day" aria-hidden="true"></i> {{ c.fecha }}</p>
+          <p><i class="fas fa-clock" aria-hidden="true"></i> {{ c.hora_inicio }} – {{ c.hora_fin }}</p>
+        </div>
+
+        <div class="cita-lado">
+          <span class="estado" [ngClass]="'estado-' + c.estado">{{ etiquetaEstado(c.estado) }}</span>
+
+          <div class="acciones" *ngIf="c.puede_modificar">
+            <button type="button" class="btn-sec" (click)="abrirReprogramar(c)" [disabled]="procesando">
+              <i class="fas fa-calendar-alt" aria-hidden="true"></i> Reprogramar
+            </button>
+            <button type="button" class="btn-peligro" (click)="cancelar(c)" [disabled]="procesando">
+              <i class="fas fa-times" aria-hidden="true"></i> Cancelar
+            </button>
+          </div>
+
+          <p class="nota" *ngIf="!c.puede_modificar && (c.estado === 'confirmada' || c.estado === 'pendiente_confirmacion')">
+            Faltan menos de 2 horas. Para cambios, comunícate con el salón.
+          </p>
+        </div>
+
+        <!-- Panel de reprogramación -->
+        <section class="reprogramar" *ngIf="citaReprogramando?.id_cita === c.id_cita">
+          <h3>Elige una nueva fecha y hora con {{ c.especialista }}</h3>
+
+          <label for="fechaNueva">Nueva fecha</label>
+          <input id="fechaNueva" type="date" [min]="hoy" [(ngModel)]="fechaNueva" (change)="cargarHorariosNuevos()" />
+
+          <p class="vacio" *ngIf="cargandoHorarios">Buscando horas libres...</p>
+          <p class="vacio" *ngIf="horariosCargados && horariosNuevos.length === 0">
+            No hay horas libres ese día. Prueba con otra fecha.
+          </p>
+
+          <div class="horas" *ngIf="horariosNuevos.length > 0">
+            <button type="button" class="hora" *ngFor="let h of horariosNuevos"
+                    [class.sel]="idHorarioNuevo === h.id_horario"
+                    (click)="idHorarioNuevo = h.id_horario">
+              {{ (h.hora_inicio + '').substring(0, 5) }}
+            </button>
+          </div>
+
+          <div class="acciones">
+            <button type="button" class="btn-primario" (click)="confirmarReprogramacion()"
+                    [disabled]="!idHorarioNuevo || procesando">
+              {{ procesando ? 'Guardando...' : 'Confirmar cambio' }}
+            </button>
+            <button type="button" class="btn-sec" (click)="cerrarReprogramar()">Cerrar</button>
+          </div>
+        </section>
+
+      </li>
+    </ul>
+  </main>
+</div>

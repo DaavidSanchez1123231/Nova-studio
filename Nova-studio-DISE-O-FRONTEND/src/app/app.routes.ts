@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login';
 import { VentasComponent } from './pages/ventas/ventas';
 import { DashboardComponent } from './pages/dashboard/dashboard'; 
 import { CitasComponent } from './pages/citas/citas';
+import { MisCitasComponent } from './pages/mis-citas/mis-citas';
 import { ClientesComponent } from './pages/clientes/clientes';
 import { ProductosComponent } from './pages/productos/productos';
 import { ServiciosComponent } from './pages/servicios/servicios';
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'recuperar', component: RecuperarComponent },
   { path: 'crear-cuenta', component: RegistroComponent },
   { path: 'reservas', component: ReservasComponent }, 
+  { path: 'mis-citas', component: MisCitasComponent, canActivate: [authGuard] },
   { path: 'nuestros-servicios', component: ServiciosPublicoComponent },
   { path: 'promociones-publico', component: PromocionesPublicoComponent },
   { path: 'nosotros', component: NosotrosComponent },

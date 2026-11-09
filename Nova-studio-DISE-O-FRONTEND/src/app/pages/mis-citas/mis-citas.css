@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ======================================
+   CONFIGURACIÓN GENERAL
+====================================== */
+
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #f4fcff;
+  background: #020708;
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.reservations-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: clip;
+
+  background:
+    radial-gradient(
+      ellipse at 20% 35%,
+      rgba(0, 239, 255, 0.055),
+      transparent 38%
+    ),
+    #020708;
+}
+
+/* ======================================
+   FONDO DECORATIVO
+====================================== */
+
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 18% 24%,
+      rgba(0, 239, 255, 0.045),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(0, 239, 255, 0.04),
+      transparent 25%
+    );
+}
+
+/* ======================================
+   NAVEGACIÓN
+====================================== */
+
+.reservations-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+
+  width: 100%;
+  min-height: 86px;
+
+  padding: 16px 5%;
+
+  background: rgba(2, 9, 11, 0.95);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(0, 239, 255, 0.20);
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo */
+
+.logo,
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
+  flex-shrink: 0;
+
+  color: #25f2ff;
+  text-decoration: none;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 14px rgba(0, 239, 255, 0.16);
+}
+
+.logo > i,
+.footer-logo > i {
+  font-size: 32px;
+
+  filter: drop-shadow(
+    0 0 8px rgba(0, 239, 255, 0.30)
+  );
+}
+
+.logo > span,
+.footer-logo > span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo small,
+.footer-logo small {
+  color: #c6dce0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+/* Enlaces del menú */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-links > a {
+  position: relative;
+
+  padding: 9px 0;
+
+  color: #b8c9ce;
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links > a:not(.cta-nav)::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 2px;
+
+  width: 0;
+  height: 2px;
+
+  background: #22efff;
+  box-shadow: 0 0 8px rgba(0, 239, 255, 0.4);
+
+  transition: width 0.3s ease;
+}
+
+.nav-links > a:hover,
+.nav-links > a.active {
+  color: #2bf1ff;
+}
+
+.nav-links > a:not(.cta-nav):hover::after,
+.nav-links > a.active::after {
+  width: 100%;
+}
+
+/* Botón del menú */
+
+.nav-links > .cta-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 16px;
+
+  border: 1px solid rgba(0, 239, 255, 0.7);
+  border-radius: 30px;
+
+  color: #22efff;
+  background: rgba(0, 239, 255, 0.055);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  transition: 0.3s ease;
+}
+
+.nav-links > .cta-nav:hover {
+  color: #001014;
+  background: #25efff;
+
+  box-shadow: 0 0 18px rgba(0, 239, 255, 0.25);
+}
+
+/* Panel de usuario */
+
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-shrink: 0;
+  color: #fff;
+}
+
+#usuario-logeado {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #25efff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+#usuario-logeado > i {
+  font-size: 23px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  max-width: 130px;
+  overflow-wrap: anywhere;
+}
+
+.user-details small {
+  color: #84b7bf;
+
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 10px 13px;
+
+  border: 1px solid rgba(255, 95, 112, 0.4);
+  border-radius: 25px;
+
+  color: #ff8995;
+  background: rgba(255, 95, 112, 0.07);
+
+  font-size: 11px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+#logout-btn:hover {
+  color: #fff;
+  background: #d93650;
+}
+
+
+/* ======================================
+   MIS CITAS
+====================================== */
+.citas-main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; padding: 130px 20px 60px; }
+.citas-head h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 6px; }
+.citas-head p { color: rgba(244, 252, 255, 0.7); margin: 0 0 22px; }
+
+.aviso { padding: 12px 16px; border-radius: 10px; margin: 0 0 18px; font-weight: 500; }
+.aviso-ok { background: rgba(104, 178, 168, 0.16); border: 1px solid #68b2a8; color: #bfeee6; }
+.aviso-error { background: rgba(255, 90, 90, 0.12); border: 1px solid #ff6b6b; color: #ffc4c4; }
+
+.vacio { text-align: center; color: rgba(244, 252, 255, 0.7); padding: 24px 0; }
+.vacio i { font-size: 2.2rem; color: #68b2a8; display: block; margin-bottom: 10px; }
+
+.lista-citas { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.cita-card {
+  display: grid; grid-template-columns: 1fr auto; gap: 14px 20px; padding: 20px 22px;
+  background: rgba(8, 22, 24, 0.82); border: 1px solid rgba(104, 178, 168, 0.28); border-radius: 16px;
+}
+.cita-info h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.cita-info p { margin: 4px 0; color: rgba(244, 252, 255, 0.82); font-size: 0.92rem; }
+.cita-info i { width: 20px; color: #68b2a8; }
+.cita-lado { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.nota { max-width: 220px; margin: 0; text-align: right; font-size: 0.8rem; color: rgba(244, 252, 255, 0.6); }
+
+.estado { padding: 4px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; background: rgba(255,255,255,0.1); }
+.estado-confirmada { background: rgba(104, 178, 168, 0.22); color: #bfeee6; }
+.estado-pendiente_confirmacion { background: rgba(255, 196, 77, 0.2); color: #ffe2a3; }
+.estado-completada { background: rgba(120, 160, 255, 0.2); color: #cddcff; }
+.estado-cancelada, .estado-expirada { background: rgba(255, 90, 90, 0.16); color: #ffc4c4; }
+
+.acciones { display: flex; flex-wrap: wrap; gap: 10px; }
+button { font-family: inherit; cursor: pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primario, .btn-sec, .btn-peligro {
+  border-radius: 10px; padding: 9px 16px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-block;
+}
+.btn-primario { background: #68b2a8; color: #021012; border: 0; }
+.btn-sec { background: transparent; color: #f4fcff; border: 1px solid rgba(104, 178, 168, 0.6); }
+.btn-peligro { background: transparent; color: #ff9b9b; border: 1px solid rgba(255, 107, 107, 0.6); }
+
+.reprogramar { grid-column: 1 / -1; border-top: 1px solid rgba(104, 178, 168, 0.25); padding-top: 16px; }
+.reprogramar h3 { margin: 0 0 12px; font-size: 1rem; }
+.reprogramar label { display: block; font-size: 0.82rem; margin-bottom: 6px; color: rgba(244, 252, 255, 0.75); }
+.reprogramar input[type="date"] {
+  background: rgba(255,255,255,0.06); color: #f4fcff; border: 1px solid rgba(104, 178, 168, 0.4);
+  border-radius: 10px; padding: 9px 12px; font-family: inherit; color-scheme: dark;
+}
+.horas { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.hora { background: transparent; color: #f4fcff; border: 1px solid rgba(104, 178, 168, 0.5); border-radius: 8px; padding: 8px 14px; }
+.hora.sel { background: #68b2a8; color: #021012; border-color: #68b2a8; font-weight: 700; }
+
+@media (max-width: 640px) {
+  .citas-main { padding-top: 110px; }
+  .cita-card { grid-template-columns: 1fr; }
+  .cita-lado { align-items: flex-start; }
+  .nota { text-align: left; }
+}
