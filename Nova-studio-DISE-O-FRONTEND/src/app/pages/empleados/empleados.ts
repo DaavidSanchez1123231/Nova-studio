@@ -271,12 +271,14 @@ export class EmpleadosComponent implements OnInit {
           estado: String(horario.estado ?? 'DISPONIBLE').toUpperCase()
         }));
         this.cargandoHorarios = false;
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error al cargar horarios:', error);
         this.errorHorarios = this.mensajeError(error, 'No se pudieron cargar los horarios.');
         this.horariosActuales = [];
         this.cargandoHorarios = false;
+        this.cdr.detectChanges();
       }
     });
   }
@@ -315,12 +317,14 @@ export class EmpleadosComponent implements OnInit {
       next: () => {
         this.nuevoHorario = { fecha: '', hora_inicio: '', hora_fin: '' };
         this.guardandoHorario = false;
+        this.cdr.detectChanges();
         this.obtenerHorarios(payload.id_especialista);
       },
       error: (error) => {
         console.error('Error al asignar horario:', error);
         this.errorHorarios = this.mensajeError(error, 'No se pudo asignar el turno.');
         this.guardandoHorario = false;
+        this.cdr.detectChanges();
       }
     });
   }
@@ -335,6 +339,7 @@ export class EmpleadosComponent implements OnInit {
       error: (error) => {
         console.error('Error al cancelar horario:', error);
         this.errorHorarios = this.mensajeError(error, 'No se pudo cancelar el turno.');
+        this.cdr.detectChanges();
       }
     });
   }
